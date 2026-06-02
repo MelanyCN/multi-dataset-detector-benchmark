@@ -1,0 +1,32 @@
+project_root: /workspace/project
+output_dataset: data/benchmark_test_300_v2
+num_images_per_dataset: 100
+seed: 42
+results_dir: results
+
+rfdetr:
+  model_name: rfdetr_medium_coco
+  confidence_threshold: 0.25
+  warmup_iters: 30
+
+datasets:
+  db1:
+    name: AAU_RainSnow
+    format: coco
+    root: data/raw/AAU_RainSnow_Traffic_Surveillance
+    annotations:
+      - aauRainSnow-rgb.json
+
+  db2:
+    name: Adverse_Weather
+    format: coco
+    root: data/raw/Adverse_Weather
+    annotations:
+      - train/_annotations.coco.json
+      - valid/_annotations.coco.json
+      - test/_annotations.coco.json
+
+  db3:
+    name: DAWN
+    format: yolo_darknet
+    root: data/raw/DAWN
